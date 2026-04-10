@@ -17,8 +17,8 @@ ultrathink
 
 ## 컨텍스트
 
-- [conventions.md](../../context/conventions.md)
-- [glossary.md](../../context/glossary.md) — 도메인 용어 예외 판단
+- `${CLAUDE_SKILL_DIR}/../../context/conventions.md` 를 Read로 읽으세요
+- `${CLAUDE_SKILL_DIR}/../../context/glossary.md` 를 Read로 읽으세요 — 도메인 용어 예외 판단에 필요
 
 ## 입력: $ARGUMENTS 문서를 Read. ID 접두사로 유형 판별.
 

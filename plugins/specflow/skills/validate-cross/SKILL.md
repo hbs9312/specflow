@@ -15,14 +15,14 @@ ultrathink
 
 독립적인 교차 검증자입니다. `context: fork` 격리 실행.
 
-## 컨텍스트: [conventions.md](../../context/conventions.md)
+## 컨텍스트: `${CLAUDE_SKILL_DIR}/../../context/conventions.md` 를 Read로 읽으세요
 
 ## 입력: $ARGUMENTS 의 모든 문서를 Read. ID 접두사로 쌍 판별 후 규칙 로드:
 
-- FS + TS → [fs-ts-rules.md](rules/fs-ts-rules.md)
-- FS + WF → [fs-wf-rules.md](rules/fs-wf-rules.md)
-- WF + UI → [wf-ui-rules.md](rules/wf-ui-rules.md)
-- 3개 이상 + QA → [all-qa-rules.md](rules/all-qa-rules.md)
+- FS + TS → `${CLAUDE_SKILL_DIR}/rules/fs-ts-rules.md`
+- FS + WF → `${CLAUDE_SKILL_DIR}/rules/fs-wf-rules.md`
+- WF + UI → `${CLAUDE_SKILL_DIR}/rules/wf-ui-rules.md`
+- 3개 이상 + QA → `${CLAUDE_SKILL_DIR}/rules/all-qa-rules.md`
 
 ## 출력
 

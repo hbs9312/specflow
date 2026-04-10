@@ -27,17 +27,17 @@ ultrathink
 
 ## 공통 컨텍스트 로드
 
-- **문서 컨벤션**: [conventions.md](../../context/conventions.md)
+- **문서 컨벤션**: `${CLAUDE_SKILL_DIR}/../../context/conventions.md` 를 Read로 읽으세요
 
 ## 입력 처리
 
 $ARGUMENTS 문서를 Read로 읽고, ID 접두사로 유형 판별 후 규칙 로드:
 
-- `FS-` → [fs-rules.md](rules/fs-rules.md)
-- `WF-` → [wf-rules.md](rules/wf-rules.md)
-- `TS-` → [ts-rules.md](rules/ts-rules.md)
-- `UI-` → [ui-rules.md](rules/ui-rules.md)
-- `QA-` → [qa-rules.md](rules/qa-rules.md)
+- `FS-` → `${CLAUDE_SKILL_DIR}/rules/fs-rules.md`
+- `WF-` → `${CLAUDE_SKILL_DIR}/rules/wf-rules.md`
+- `TS-` → `${CLAUDE_SKILL_DIR}/rules/ts-rules.md`
+- `UI-` → `${CLAUDE_SKILL_DIR}/rules/ui-rules.md`
+- `QA-` → `${CLAUDE_SKILL_DIR}/rules/qa-rules.md`
 
 ## 출력 형식
 

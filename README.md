@@ -17,6 +17,18 @@ claude --plugin-dir /path/to/specflow
 bash /path/to/specflow/scripts/init-project.sh
 ```
 
+## 사전 조건 (선택)
+
+P5(도구 동기화) 스킬을 사용하려면 MCP 서버 연결이 필요합니다:
+
+| 도구 | 환경 변수 | 발급 위치 |
+|------|----------|----------|
+| Linear | `LINEAR_API_KEY` | Linear 설정 > API > Personal API Keys |
+| Notion | `NOTION_API_KEY` | notion.so/my-integrations |
+
+MCP 없이도 P1~P4(태스크 분해~스프린트 배치)는 정상 동작합니다.
+P5만 MCP가 필요하며, MCP 없이 실행 시 sync_plan을 파일로 출력합니다.
+
 ## 커맨드
 
 ### 전체 워크플로우
