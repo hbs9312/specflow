@@ -9,10 +9,7 @@
     {
       "name": "specflow",
       "description": "명세서 생성·검증·수정·구현 계획 워크플로우 (18개 스킬 + 오케스트레이터)",
-      "source": {
-        "type": "relative",
-        "path": "."
-      },
+      "source": ".",
       "tags": [
         "workflow",
         "specification",
