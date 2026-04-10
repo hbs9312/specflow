@@ -15,7 +15,7 @@
       "author": {
         "name": "soymedia"
       },
-      "source": "."
+      "source": "./plugins/specflow"
     }
   ]
 }
