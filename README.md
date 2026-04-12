@@ -41,6 +41,7 @@ P5만 MCP가 필요하며, MCP 없이 실행 시 sync_plan을 파일로 출력�
 |--------|------|
 | `/specflow:generate-fs` | 기능 명세서 |
 | `/specflow:generate-wf` | 와이어프레임 |
+| `/specflow:extract-wf-from-figma` | Figma에서 WF 역추출 (design-first) |
 | `/specflow:generate-ts` | 기술 명세서 |
 | `/specflow:extract-ui` | 화면설계서 |
 | `/specflow:generate-qa` | 테스트 명세서 |
@@ -83,6 +84,92 @@ P5만 MCP가 필요하며, MCP 없이 실행 시 sync_plan을 파일로 출력�
   ├── R (수정) — "어떻게 고칠 것인가"
   ├── P (계획) — "어떤 순서로, 누가, 언제"
   └── U (유틸) — 참조 추출, 상태 매트릭스, 영향 분석
+```
+
+## 워크플로우
+
+오케스트레이터는 입력 상태에 따라 두 가지 모드로 동작합니다.
+
+### spec-first 모드 (기본)
+
+WF가 없고 FS부터 시작하는 일반적인 흐름입니다.
+
+```
+PRD / 자연어 요구사항
+  │
+  ▼
+Phase 1: generate-fs ─── 기능 명세서 (FS)
+  │
+  ├─▶ validate → patch/regenerate → 승인
+  │
+  ▼
+Phase 2: state-matrix → generate-wf ─── 와이어프레임 (WF)
+  │
+  ├─▶ validate + validate-cross(FS↔WF) + validate-boundary → 승인
+  │
+  ├───────────────────┐
+  ▼                   ▼
+Phase 3:            Phase 4:
+generate-ts         extract-ui ←── WF + Figma
+기술 명세서 (TS)      화면설계서 (UI)
+  │                   │
+  └─────────┬─────────┘
+            ▼
+Phase 5: generate-qa ─── 테스트 명세서 (QA)
+  │
+  ▼
+Phase 6: decompose → analyze-deps → estimate → plan-sprints → sync-tools
+```
+
+### design-first 모드
+
+Figma 디자인이 WF보다 먼저 존재할 때 자동 진입합니다.
+Figma URL을 제공하거나 "디자인이 이미 있다"고 표현하면 이 모드가 선택됩니다.
+
+```
+PRD + Figma URL
+  │
+  ▼
+Phase 1: generate-fs ─── 기능 명세서 (FS)
+  │
+  ├─▶ validate → patch/regenerate → 승인
+  │
+  ▼
+Phase 2: state-matrix → extract-wf-from-figma ←── FS + Figma
+  │                      (구조만 역추출, 시각 제거)
+  │                      와이어프레임 (WF)
+  │
+  ├─▶ validate + validate-cross(FS↔WF) + validate-cross(Figma↔WF) + validate-boundary → 승인
+  │
+  ├───────────────────┐
+  ▼                   ▼
+Phase 3:            Phase 4:
+generate-ts         extract-ui ←── WF + Figma (동일 소스)
+기술 명세서 (TS)      화면설계서 (UI)
+  │                   │
+  └─────────┬─────────┘
+            ▼
+Phase 5~6: (spec-first와 동일)
+```
+
+**핵심 차이**: Phase 2에서 `generate-wf` 대신 `extract-wf-from-figma`를 사용하고,
+Figma↔WF 교차 검증이 추가됩니다. Phase 3~6은 동일합니다.
+
+### 검증/수정 루프
+
+모든 Phase에서 검증 → 수정 루프가 동작합니다.
+
+```
+문서 생성 완료
+  ├─▶ validate (V1)          단일 문서 검증
+  ├─▶ validate-cross (V2)    교차 일관성
+  └─▶ validate-boundary (V3) 경계 침범 감지
+         │
+         ▼
+   critical=0 & total≤5 → patch (R1)
+   critical≥1 | total>5 → regenerate (R2)
+         │
+         └─▶ Phase당 최대 4회 (1생성 + 1패치 + 2재생성)
 ```
 
 ## 라이선스
