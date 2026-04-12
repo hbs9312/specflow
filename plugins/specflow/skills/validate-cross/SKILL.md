@@ -22,6 +22,7 @@ ultrathink
 - FS + TS → `${CLAUDE_SKILL_DIR}/rules/fs-ts-rules.md`
 - FS + WF → `${CLAUDE_SKILL_DIR}/rules/fs-wf-rules.md`
 - WF + UI → `${CLAUDE_SKILL_DIR}/rules/wf-ui-rules.md`
+- Figma + WF → `${CLAUDE_SKILL_DIR}/rules/figma-wf-rules.md` (design-first 모드)
 - 3개 이상 + QA → `${CLAUDE_SKILL_DIR}/rules/all-qa-rules.md`
 
 ## 출력
