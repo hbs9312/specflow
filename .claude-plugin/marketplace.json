@@ -1,7 +1,7 @@
 {
   "name": "specflow",
   "owner": {
-    "name": "soymedia"
+    "name": "hbs9312"
   },
   "metadata": {
     "description": "에이전트 기반 개발 명세서 생성·검증·수정 워크플로우. PRD에서 기능 명세, 기술 명세, 와이어프레임, 화면설계서, 테스트 명세, 구현 계획까지 자동 생성합니다.",
@@ -13,7 +13,7 @@
       "description": "명세서 생성·검증·수정·구현 계획 워크플로우 (18개 스킬 + 오케스트레이터)",
       "version": "1.2.0",
       "author": {
-        "name": "soymedia"
+        "name": "hbs9312"
       },
       "source": "./plugins/specflow"
     }

@@ -7,8 +7,8 @@
 ```bash
 claude --plugin-dir /path/to/specflow
 # 또는 마켓플레이스에서:
-# /plugin marketplace add soymedia/specflow
-# /plugin install specflow@soymedia-specflow
+# /plugin marketplace add hbs9312/specflow
+# /plugin install specflow@hbs9312-specflow
 ```
 
 ## 초기화

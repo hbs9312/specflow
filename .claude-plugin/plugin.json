@@ -3,11 +3,11 @@
   "description": "에이전트 기반 개발 명세서 생성-검증-수정 워크플로우. 기능 명세, 기술 명세, 와이어프레임, 화면설계서, 테스트 명세를 생성하고 교차 검증하며, 구현 계획까지 수립합니다.",
   "version": "0.1.0",
   "author": {
-    "name": "soymedia"
+    "name": "hbs9312"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/soymedia/specflow"
+    "url": "https://github.com/hbs9312/specflow"
   },
   "license": "MIT"
 }
